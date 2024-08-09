@@ -29,7 +29,7 @@
         let tg = window.Telegram.WebApp;
         let userId = tg.initDataUnsafe.user.id;
 
-        gameInstance.SendMessage('UserIdReceiver', 'ReceiveUserId', userId);
+        gameInstance.SendMessage('IDReceiver', 'ReceiveUserId', userId);
       }
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
