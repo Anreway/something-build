@@ -25,12 +25,18 @@
         document.body.style.textAlign = "left";
       }
 
+
       function sendUserIdToUnity() {
         let tg = window.Telegram.WebApp;
-        let userId = tg.initDataUnsafe.user.id;
+        let userId = "not in telegram";
+
+        if (tg && tg.initDataUnsafe && tg.initDataUnsafe.user) {
+          userId = tg.initDataUnsafe.user.id ? tg.initDataUnsafe.user.id : "000";
+        }
 
         gameInstance.SendMessage('IDReceiver', 'ReceiveUserId', userId);
       }
+
 
       createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/hamster-hotel-build.data",
@@ -43,7 +49,7 @@
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
       }).then((unityInstance) => {
-        window.gameInstance = unityInstance; 
+        window.gameInstance = unityInstance;
         sendUserIdToUnity();
       });
     </script>
