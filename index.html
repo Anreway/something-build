@@ -25,24 +25,23 @@
         document.body.style.textAlign = "left";
       }
 
-      // Функция для отправки ID пользователя в Unity
-      function sendUserIdToUnity() {
-          function checkTelegramWebAppReady() {
-              return new Promise((resolve) => {
-                  const interval = setInterval(() => {
-                      if (window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe && window.Telegram.WebApp.initDataUnsafe.user) {
-                          clearInterval(interval);
-                          resolve(window.Telegram.WebApp);
-                      }
-                  }, 100); 
-              });
-          }
+        function sendUserIdToUnity() {
+            function checkTelegramWebAppReady() {
+                return new Promise((resolve) => {
+                    const interval = setInterval(() => {
+                        if (window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe && window.Telegram.WebApp.initDataUnsafe.user) {
+                            clearInterval(interval);
+                            resolve(window.Telegram.WebApp);
+                        }
+                    }, 100);
+                });
+            }
 
-          checkTelegramWebAppReady().then((tg) => {
-              let userId = tg.initDataUnsafe.user.id;
-              gameInstance.SendMessage('IDReceiver', 'ReceiveUserId', userId);
-          });
-      }
+            checkTelegramWebAppReady().then((tg) => {
+                let userId = tg.initDataUnsafe.user.id;
+                gameInstance.SendMessage('IDReceiver', 'ReceiveUserId', userId);
+            });
+        }
 
       // Создаем экземпляр Unity и добавляем callback на инициализацию
       createUnityInstance(document.querySelector("#unity-canvas"), {
