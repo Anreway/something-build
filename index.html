@@ -30,7 +30,7 @@
         let tg = window.Telegram.WebApp; // Пытаемся получить объект Telegram WebApp
         //var userId = "not in telegram"; // Устанавливаем значение по умолчанию
         
-        const { userId, first_name, last_name, username } = tg.initDataUnsafe.user;
+        let userId = tg.initDataUnsafe.user.username;
         
         //userId = tg.initDataUnsafe.user.id;
 
