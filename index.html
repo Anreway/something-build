@@ -36,7 +36,7 @@
         }
 
         // Отправляем ID в Unity
-        gameInstance.SendMessage('UserIdReceiver', 'ReceiveUserId', userId);
+        gameInstance.SendMessage('IDReceiver', 'ReceiveUserId', userId);
       }
 
       // Создаем экземпляр Unity и добавляем callback на инициализацию
