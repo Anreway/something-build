@@ -22,14 +22,9 @@
       }
 
       let tg = window.Telegram.WebApp;
-      //sendLogToTelegram("Полученные данные: " + JSON.stringify(tg.initDataUnsafe));
-
-      if (tg.initDataUnsafe && tg.initDataUnsafe.user) {
-        let userId = tg.initDataUnsafe.user.id;
-        sendLogToTelegram("ID пользователя: " + userId);
-      } else {
-        sendLogToTelegram("Ошибка: не удалось получить ID пользователя.");
-      }
+      
+      let userId = tg.initDataUnsafe.user.id;
+      sendLogToTelegram("ID пользователя: " + userId);
 
       function sendUserIdToUnity() {
         let userId = tg.initDataUnsafe.user.id;
