@@ -28,8 +28,8 @@
       // Функция для отправки ID пользователя в Unity
       function sendUserIdToUnity() {
         let tg = window.Telegram.WebApp; // Пытаемся получить объект Telegram WebApp
-        let userId = "not in telegram"; // Устанавливаем значение по умолчанию
-
+        var userId = "not in telegram"; // Устанавливаем значение по умолчанию
+        
         userId = tg.initDataUnsafe.user.id;
 
         // Отправляем ID в Unity
