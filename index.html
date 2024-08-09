@@ -39,7 +39,8 @@
 
             checkTelegramWebAppReady().then((tg) => {
                 let userId = tg.initDataUnsafe.user.id;
-                gameInstance.SendMessage('IDReceiver', 'ReceiveUserId', userId);
+                let userIdStr = userId.toString();
+                gameInstance.SendMessage('IDReceiver', 'ReceiveUserId', userIdStr);
             });
         }
 
