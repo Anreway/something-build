@@ -24,7 +24,7 @@
 
         document.body.style.textAlign = "left";
       }
-        
+
         function sendUserIdToUnity() {
             function checkTelegramWebAppReady() {
                 return new Promise((resolve) => {
@@ -44,7 +44,7 @@
             });
         }
 
-
+      // Создаем экземпляр Unity и добавляем callback на инициализацию
       createUnityInstance(document.querySelector("#unity-canvas"), {
         dataUrl: "Build/hamster-hotel-build.data",
         frameworkUrl: "Build/hamster-hotel-build.framework.js",
@@ -55,7 +55,7 @@
         productVersion: "1.0",
         // matchWebGLToCanvasSize: false, // Uncomment this to separately control WebGL canvas render size and DOM element size.
         // devicePixelRatio: 1, // Uncomment this to override low DPI rendering on high DPI displays.
-        }).then((unityInstance) => {
+      }).then((unityInstance) => {
         window.gameInstance = unityInstance; // Сохраняем экземпляр Unity
         sendUserIdToUnity(); // Отправляем ID пользователя после загрузки Unity
       });
